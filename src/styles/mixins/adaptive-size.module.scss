@@ -1,0 +1,40 @@
+@use "sass:math";
+
+$minWidtn: 320;
+$maxWidth: 1920;
+$maxWidthContainer: 1170;
+
+@mixin adaptive-value($property, $minSize, $startSize, $type) {
+  $addSize: $startSize - $minSize;
+  @if type == 1 {
+
+    #{$property}: $startSize + px;
+
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidtn + px}) / #{$maxWidthContainer - $minWidtn}));
+    }
+
+  }
+  
+  @else if $type == 2 {
+
+    #{$property}: $startSize + px;
+
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidtn + px}) / #{$maxWidth - $minWidtn}));
+    }
+  }
+
+  @else if $type == 3 {
+
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidtn + px}) / #{$maxWidth - $minWidtn}));
+
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: $startSize + px;
+    }
+  }
+
+  @else {
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidtn + px}) / #{$maxWidth - $minWidtn}));
+  }
+}

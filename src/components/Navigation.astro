@@ -1,0 +1,18 @@
+---
+import BurgerMenu from "./BurgerMenu.astro";
+import MenuItems from "./MenuItems.astro";
+---
+<nav class="navigation">
+  <BurgerMenu />
+  <MenuItems />
+</nav>
+
+<style is:global>
+  .navigation {
+    position: relative;
+  }
+  .navigation__toggle:checked ~ .navigation-list {
+    transform: translateX(0);
+  }
+
+</style>
