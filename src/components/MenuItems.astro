@@ -1,0 +1,42 @@
+---
+const anchors = [
+  { url: "/", title: "Home" },
+  { url: "/#about", title: "About" },
+  { url: "/#products", title: "Products" }
+]
+---
+<ul class="navigation-list">
+  { anchors.map(link =>
+    <li class="navigation-list__item">
+      <a class="navigation-list__link" href={link.url}>{link.title}</a>
+    </li>)
+  }
+</ul>
+
+<style lang="scss">
+  .navigation-list {
+    font-weight: 700;
+    transition: transform ease .3s;
+    position: fixed;
+    left: 0;
+    width: 33vw;
+    transform: translateX(-300px);
+    height: 100vh;
+    top: 0;
+    padding: 20px;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    @include breakpoint(md) {
+      display: flex;
+      gap: 30px;
+      transform: inherit;
+      background: transparent;
+      flex-direction: row;
+      position: static;
+      height: auto;
+      width: auto;
+    }
+  }
+</style>

@@ -10,6 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^2.2.0"
+    "astro": "^2.2.0",
+    "astro-breakpoints": "^0.6.2",
+    "normalize.css": "^8.0.1",
+    "sass": "^1.61.0"
   }
 }

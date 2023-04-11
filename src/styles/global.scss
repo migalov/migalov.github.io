@@ -1,0 +1,78 @@
+:root {
+
+  // Breakpoints
+  --xxs: 290px;
+  --xs: 576px;
+  --sm: 768px;
+  --md: 1024px;
+  --lg: 1200px;
+
+  // Colors
+  --color-blue: #3333FF;
+  --color-violet: #7D24FF;
+  --color-cyan: #2096FF;
+  --color-dark-blue: #1111A6;
+  --color-ghost: #F8F8FF;
+  --color-grey: #efefef;
+  --color-white: #FFFFFF;
+  --color-orange: #ffc98c;
+  --color-orange-light: #ffddb7;
+  --color-black: #111111;
+  --color-brown: #552d00;
+
+  // Typography
+  --base-font: "Open Sans";
+  --base-line-height: 1.5;
+  --background-color-page: var(--color-orange);
+  --base-color-text: var(--color-black);
+
+  // Buttons
+  --button-primary-background: var(--color-blue);
+  --button-primary-text: var(--color-white);
+  --button-second-background: var(--color-ghost);
+  --button-second-text: var(--color-black);
+  
+  --border-color: var(--color-grey);
+
+  --header-background-color: var(--color-orange-light)
+}
+
+@import "./functions/index.module.scss";
+@import "./mixins/index.module.scss";
+
+body {
+  background-color: var(--background-color-page);
+  font-family: var(--base-font), sans-serif;
+  box-sizing: border-box;
+  line-height: var(--base-line-height);
+  color: var(--base-color-text);
+  @include adaptive-value("font-size", 14, 16, 3);
+}
+.container {
+  margin: 0 auto;
+  @include adaptive-value("padding-left", 20, 30, 3);
+  @include adaptive-value("padding-right", 20, 30, 3);
+  max-width: var(--lg);
+}
+
+ul, li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+h1, h2 {
+  font-family: "Open Sans";
+}
