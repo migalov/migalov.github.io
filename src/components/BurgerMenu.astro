@@ -1,0 +1,76 @@
+
+  <input class="navigation__toggle" id="menu__toggle" type="checkbox">
+  <label for="menu__toggle" class="hamburger-menu"></label>
+
+
+<style lang="scss">
+  .burger-block {
+    position: relative;
+  }
+
+  .navigation__toggle {
+    position: absolute;
+    top: -7px;
+    width: 100%;
+    height: 18px;
+    opacity: 0;
+    cursor: pointer;
+    @include breakpoint(md) {
+      display: none;
+    }
+    
+  }
+
+  .hamburger-menu {
+    display: block;
+    @include breakpoint(md) {
+      display: none;
+    }
+  }
+  
+  .hamburger-menu,
+  .hamburger-menu::after,
+  .hamburger-menu::before {
+    width: 20px;
+    height: 3px;
+    border-radius: 1.5px;
+    transition: ease .3s;
+  }
+
+  .hamburger-menu {
+    position: relative;
+    background: var(--color-brown);
+    
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      background: var(--color-brown);
+    }
+
+    &::before {
+      left: 0;
+      top: -7px;
+    }
+
+    &::after {
+      left: 0;
+      bottom: -7px;
+    }
+  }
+
+  .navigation__toggle:checked ~ .hamburger-menu  {
+
+    background: transparent;
+
+    &::after {
+      bottom: 0px;
+      transform: rotate(45deg);
+
+    }
+    &::before {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+  }
+</style>
