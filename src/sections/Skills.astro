@@ -1,0 +1,82 @@
+---
+
+const size = 18;
+
+import data from "../data/tech.json";
+
+---
+<section class="skills">
+  <div class="skills-inner container">
+    <div class="skills-description">
+      <h2>Навыки</h2>
+      <p>Здесь вкратце описаны навыки, которыми я обладаю и совершенствую.</p>
+    </div>
+    <ul class="skills-list">
+      { data.map(t =>
+        <li class="skills-list__item">
+          <img class="skills-list__icon" src={`./icons/${t.icon}.svg`} alt="" srcset="" />
+          <div class="skills-list-hint">
+            <h3 class="skills-list-hint__title">{t.title}</h3>
+            <p class="skills-list-hint__body">{t.body}</p>
+          </div>
+          
+        </li>)
+      }
+    </ul>
+  </div>
+
+</section>
+
+<style lang="scss">
+  .skills-inner {
+    @include breakpoint(md) {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+    }
+  }
+  .skills-description {
+    & p {
+      margin: 10px 0;
+    }
+  }
+  .skills-list__item {
+    position: relative;
+    display: flex;
+    gap: 15px;
+  }
+  .skills-list__hint {
+    flex: 1;
+  }
+  // .skills-list__hint {
+  //   opacity: 0;
+  //   visibility: hidden;
+  //   position: absolute;
+  //   transition: opacity ease .3s;
+  //   z-index: 1;
+  // }
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .skills-list__icon {
+    border-radius: 14px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .skills-list__item:hover img {
+    box-shadow: 0px 0px 40px 22px rgba(172, 117, 42, 0.22);
+  }
+
+  // .skills-list__item:hover .skills-list__hint {
+  //   opacity: 1;
+  //   visibility: visible;
+  //   width: 300px;
+  //   background-color: white;
+  //   border-radius: 6px;
+  //   padding: 10px;
+  // }
+</style>
