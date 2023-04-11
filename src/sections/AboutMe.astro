@@ -1,0 +1,47 @@
+---
+
+import { Icon } from "astro-icon";
+import Button from "../components/Button.astro";
+import NetworkItems from "../components/NetworkItems.astro";
+
+---
+<section class="about">
+  <div class="about-inner container">
+      <div class="about-avatar-border">
+        <img width="250" src="./images/author.png" />
+      </div>
+      <article class="about-text">
+        <h1>Михаил Муньягисеньи</h1>
+        <p>Я начинающий верстальщик. В настоящее время я ищу работу в области frontend-разработки. Помимо этого я продолжаю верстать и писать валидный код, чтобы расширить свои компетенции в качестве веб-разработчика.</p>
+        <p>Помимо вёрстки и программирования также увлекаюсь векторной графикой и иногда пробую проектировать интерфейсы.</p>
+        <p>Если что-либо из-этого вас заинтересовало или у вас есть ко мне вопросы - свяжитесь со мной. Хорошего вам дня!</p>
+        <NetworkItems />
+      </article>
+  </div>
+</section>
+
+<style lang="scss">
+.about {
+  padding: 70px 0;
+  & p {
+    margin: 10px 0;
+  }
+}
+
+.about img {
+  filter: drop-shadow(0px 4px 10px #000000);
+}
+
+.about-inner {
+  @include breakpoint(md) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+  }
+}
+.about-avatar-border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
